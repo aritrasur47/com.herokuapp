@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite thread-count="2" parallel="tests" name="Failed suite [PostiveLoginTestSuite]" guice-stage="DEVELOPMENT">
+  <test thread-count="2" parallel="tests" name="PositiveLoginTest-CH(failed)">
+    <parameter name="password" value="SuperSecretPassword!"/>
+    <parameter name="browser" value="chrome"/>
+    <parameter name="expectedMessage" value="Login Successful!"/>
+    <parameter name="username" value="tomsmith"/>
+    <classes>
+      <class name="com.herokuapp.theinternet.Loginpagetests.PositiveLoginTests">
+        <methods>
+          <include name="loginTest"/>
+          <include name="setUp"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.herokuapp.theinternet.Loginpagetests.PositiveLoginTests -->
+    </classes>
+  </test> <!-- PositiveLoginTest-CH(failed) -->
+  <test thread-count="2" parallel="tests" name="NegativeLoginTest-FF(failed)">
+    <parameter name="password" value="SuperSecretPassword!"/>
+    <parameter name="browser" value="firefox"/>
+    <parameter name="expectedMessage" value="Login Successful!"/>
+    <parameter name="username" value="tomsmith"/>
+    <classes>
+      <class name="com.herokuapp.theinternet.Loginpagetests.PositiveLoginTests">
+        <methods>
+          <include name="loginTest"/>
+          <include name="setUp"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.herokuapp.theinternet.Loginpagetests.PositiveLoginTests -->
+    </classes>
+  </test> <!-- NegativeLoginTest-FF(failed) -->
+</suite> <!-- Failed suite [PostiveLoginTestSuite] -->
