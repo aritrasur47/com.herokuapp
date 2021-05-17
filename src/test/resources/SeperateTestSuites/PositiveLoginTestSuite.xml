@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="PostiveLoginTestSuite" verbose="1" parallel="tests" thread-count="2">
+
+  <test name="PositiveLoginTest-CH">
+		<parameter name="username" value="tomsmith"></parameter>
+		<parameter name="password" value="SuperSecretPassword!"></parameter>
+		<parameter name="expectedMessage"
+			value="Login Successful!"></parameter>
+		<parameter name="browser" value="chrome"></parameter>
+		<classes>
+			<class
+				name="com.herokuapp.theinternet.Loginpagetests.PositiveLoginTests" />
+		</classes>
+	</test>
+	
+	<test name="NegativeLoginTest-FF">
+		<parameter name="username" value="tomsmith"></parameter>
+		<parameter name="password" value="SuperSecretPassword!"></parameter>
+		<parameter name="expectedMessage"
+			value="Login Successful!"></parameter>
+		<parameter name="browser" value="firefox"></parameter>
+		<classes>
+			<class
+				name="com.herokuapp.theinternet.Loginpagetests.PositiveLoginTests" />
+		</classes>
+	</test>
+	
+</suite>

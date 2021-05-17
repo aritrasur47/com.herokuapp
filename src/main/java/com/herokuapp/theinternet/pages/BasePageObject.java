@@ -30,6 +30,11 @@ public class BasePageObject {
 		return driver.findElement(locator);
 	}
 
+	// Find all elements using given locator
+	protected List<WebElement> findAll(By locator) {
+		return driver.findElements(locator);
+	}
+
 	// Click on element with given locator when it's visible
 	protected void click(By locator) {
 		waitForVisibilityOf(locator, 5);
