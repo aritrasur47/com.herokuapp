@@ -7,9 +7,12 @@ import org.openqa.selenium.WebDriver;
 public class WelcomePageObject extends BasePageObject {
 
 	private String pageURL = "https://the-internet.herokuapp.com/";
+
 	private By formAuthenticationLinkLocator = By.linkText("Form Authentication");
 	private By checkBoxesLinkLocator = By.linkText("Checkboxes");
 	private By dropdownLinkLocator = By.linkText("Dropdown");
+	private By javaScriptAlertsLinkLocator = By.linkText("JavaScript Alerts");
+	private By multipleWindowsLinkLocator = By.linkText("Multiple Windows");
 
 	public WelcomePageObject(WebDriver driver, Logger log) {
 		super(driver, log);
@@ -40,5 +43,17 @@ public class WelcomePageObject extends BasePageObject {
 		log.info("Clicking Dropdown link on Welcome Page");
 		click(dropdownLinkLocator);
 		return new DropdownPageObject(driver, log);
+	}
+
+	public JavaScriptAlertsPageObject clickJavaScriptAlertsLink() {
+		log.info("Clicking JavaScript Alerts on Welcome Page");
+		click(javaScriptAlertsLinkLocator);
+		return new JavaScriptAlertsPageObject(driver, log);
+	}
+
+	public WindowsPageObject clickMultipleWindowsLink() {
+		log.info("Clicking Multiple Windows Link on Welcome Page");
+		click(multipleWindowsLinkLocator);
+		return new WindowsPageObject(driver, log);
 	}
 }
