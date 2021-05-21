@@ -7,9 +7,11 @@ import java.util.Set;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -108,5 +110,27 @@ public class BasePageObject {
 				}
 			}
 		}
+	}
+
+	// Switch to iFrame using it's locator
+	protected void switchToFrame(By frameLocator) {
+		driver.switchTo().frame(find(frameLocator));
+	}
+
+	// Press key on locator
+	protected void pressKey(By locator, Keys key) {
+		find(locator).sendKeys(key);
+	}
+
+	// Open page with given URL
+	protected void openUrl(String url) {
+		driver.get(url);
+	}
+
+	// Press key using Actions Class
+	public void pressKeyWithActions(Keys key) {
+		log.info("Pressing " + key.name() + " using Actions class");
+		Actions action = new Actions(driver);
+		action.sendKeys(key).build().perform();
 	}
 }
