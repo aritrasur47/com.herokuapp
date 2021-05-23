@@ -4,8 +4,8 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import com.herokuapp.theinternet.base.TestUtilities;
-import com.herokuapp.theinternet.pages.CheckboxesPageObject;
-import com.herokuapp.theinternet.pages.WelcomePageObject;
+import com.herokuapp.theinternet.pages.CheckboxesPage;
+import com.herokuapp.theinternet.pages.WelcomePage;
 
 public class CheckboxesTests extends TestUtilities {
 	@Test
@@ -13,11 +13,11 @@ public class CheckboxesTests extends TestUtilities {
 		log.info("Starting selectingTwoCheckboxesTest");
 
 		// Open home page
-		WelcomePageObject welcomePage = new WelcomePageObject(driver, log);
+		WelcomePage welcomePage = new WelcomePage(driver, log);
 		welcomePage.openPage();
 
 		// Click on check boxes link
-		CheckboxesPageObject checkboxesPage = welcomePage.clickCheckBoxesLink();
+		CheckboxesPage checkboxesPage = welcomePage.clickCheckBoxesLink();
 
 		// Select all check boxes
 		checkboxesPage.selectAllCheckboxes();

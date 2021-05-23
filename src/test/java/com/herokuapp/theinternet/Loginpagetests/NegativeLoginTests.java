@@ -5,8 +5,8 @@ import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import com.herokuapp.theinternet.base.TestUtilities;
-import com.herokuapp.theinternet.pages.LoginPageObject;
-import com.herokuapp.theinternet.pages.WelcomePageObject;
+import com.herokuapp.theinternet.pages.LoginPage;
+import com.herokuapp.theinternet.pages.WelcomePage;
 
 public class NegativeLoginTests extends TestUtilities {
 
@@ -15,11 +15,11 @@ public class NegativeLoginTests extends TestUtilities {
 	public void negativeTest(String username, String password, String expectedErrorMessage) {
 
 		// Open home page
-		WelcomePageObject welcomePage = new WelcomePageObject(driver, log);
+		WelcomePage welcomePage = new WelcomePage(driver, log);
 		welcomePage.openPage();
 
 		// Click on Form Authentication Link
-		LoginPageObject loginPage = welcomePage.clickFormAuthentucationLink();
+		LoginPage loginPage = welcomePage.clickFormAuthentucationLink();
 
 		// Execute negative login
 		loginPage.negativeLogin(username, password);

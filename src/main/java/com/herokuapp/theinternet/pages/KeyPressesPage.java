@@ -5,14 +5,14 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 
-public class KeyPressesPageObject extends BasePageObject {
+public class KeyPressesPage extends BasePageObject {
 
 	private String pageUrl = "https://the-internet.herokuapp.com/key_presses";
 
 	private By body = By.xpath("//body");
 	private By resultTextLocator = By.id("result");
 
-	public KeyPressesPageObject(WebDriver driver, Logger log) {
+	public KeyPressesPage(WebDriver driver, Logger log) {
 		super(driver, log);
 	}
 

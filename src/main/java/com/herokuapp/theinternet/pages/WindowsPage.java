@@ -4,11 +4,11 @@ import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-public class WindowsPageObject extends BasePageObject {
+public class WindowsPage extends BasePageObject {
 
 	public By clickHereLinkLocator = By.linkText("Click Here");
 
-	public WindowsPageObject(WebDriver driver, Logger log) {
+	public WindowsPage(WebDriver driver, Logger log) {
 		super(driver, log);
 	}
 
@@ -19,9 +19,9 @@ public class WindowsPageObject extends BasePageObject {
 	}
 
 	// Find page with title "New Window" and switch to it
-	public NewWindowPageObject switchToNewWindowPage() {
+	public NewWindowPage switchToNewWindowPage() {
 		log.info("Looking for 'New Window' page");
 		switchToWindowWithTitle("New Window");
-		return new NewWindowPageObject(driver, log);
+		return new NewWindowPage(driver, log);
 	}
 }

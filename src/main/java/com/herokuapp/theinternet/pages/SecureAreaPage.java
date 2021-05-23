@@ -4,13 +4,13 @@ import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-public class SecureAreaPageObject extends BasePageObject {
+public class SecureAreaPage extends BasePageObject {
 
 	private String pageUrl = "https://the-internet.herokuapp.com/secure";
 	private By logoutButton = By.xpath("//a[@class='button secondary radius']");
 	private By message = By.id("flash-messages");
 
-	public SecureAreaPageObject(WebDriver driver, Logger log) {
+	public SecureAreaPage(WebDriver driver, Logger log) {
 		super(driver, log);
 	}
 

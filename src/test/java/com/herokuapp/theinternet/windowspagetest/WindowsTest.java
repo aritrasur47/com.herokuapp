@@ -4,9 +4,9 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import com.herokuapp.theinternet.base.TestUtilities;
-import com.herokuapp.theinternet.pages.NewWindowPageObject;
-import com.herokuapp.theinternet.pages.WelcomePageObject;
-import com.herokuapp.theinternet.pages.WindowsPageObject;
+import com.herokuapp.theinternet.pages.NewWindowPage;
+import com.herokuapp.theinternet.pages.WelcomePage;
+import com.herokuapp.theinternet.pages.WindowsPage;
 
 public class WindowsTest extends TestUtilities {
 	@Test
@@ -14,18 +14,18 @@ public class WindowsTest extends TestUtilities {
 		log.info("Starting newWindowTest");
 
 		// Open Home Page
-		WelcomePageObject welcomePage = new WelcomePageObject(driver, log);
+		WelcomePage welcomePage = new WelcomePage(driver, log);
 		welcomePage.openPage();
 
 		// Click on MultipleWindows Link
-		WindowsPageObject windowPage = welcomePage.clickMultipleWindowsLink();
+		WindowsPage windowPage = welcomePage.clickMultipleWindowsLink();
 
 		// Click 'Click Here' link to open new window
 		windowPage.openNewWindow();
 		applyingCustomWait(2000);
 
 		// Find and switch to new window page
-		NewWindowPageObject newWindowPage = windowPage.switchToNewWindowPage();
+		NewWindowPage newWindowPage = windowPage.switchToNewWindowPage();
 
 		String pageSource = newWindowPage.getCurrentPageSource();
 

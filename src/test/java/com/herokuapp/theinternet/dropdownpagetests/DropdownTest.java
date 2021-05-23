@@ -4,8 +4,8 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import com.herokuapp.theinternet.base.TestUtilities;
-import com.herokuapp.theinternet.pages.DropdownPageObject;
-import com.herokuapp.theinternet.pages.WelcomePageObject;
+import com.herokuapp.theinternet.pages.DropdownPage;
+import com.herokuapp.theinternet.pages.WelcomePage;
 
 public class DropdownTest extends TestUtilities {
 	@Test
@@ -13,11 +13,11 @@ public class DropdownTest extends TestUtilities {
 		log.info("Starting optionTwoTest");
 
 		// Open Home page
-		WelcomePageObject welcomePage = new WelcomePageObject(driver, log);
+		WelcomePage welcomePage = new WelcomePage(driver, log);
 		welcomePage.openPage();
 
 		// Click on Drop-down Link
-		DropdownPageObject dropdownPage = welcomePage.clickDropDownLink();
+		DropdownPage dropdownPage = welcomePage.clickDropDownLink();
 
 		// Select option2
 		dropdownPage.selectOption(2);

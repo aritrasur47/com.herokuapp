@@ -4,12 +4,12 @@ import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-public class EditorPageObject extends BasePageObject {
+public class EditorPage extends BasePageObject {
 
 	private By editorLocator = By.id("tinymce");
 	private By frame = By.tagName("iframe");
 
-	public EditorPageObject(WebDriver driver, Logger log) {
+	public EditorPage(WebDriver driver, Logger log) {
 		super(driver, log);
 	}
 

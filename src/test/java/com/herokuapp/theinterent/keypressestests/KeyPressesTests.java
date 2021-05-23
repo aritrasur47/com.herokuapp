@@ -5,7 +5,7 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import com.herokuapp.theinternet.base.TestUtilities;
-import com.herokuapp.theinternet.pages.KeyPressesPageObject;
+import com.herokuapp.theinternet.pages.KeyPressesPage;
 
 public class KeyPressesTests extends TestUtilities {
 	@Test
@@ -13,7 +13,7 @@ public class KeyPressesTests extends TestUtilities {
 		log.info("Starting pressKeyTest");
 
 		// Open KeyPressesPage
-		KeyPressesPageObject keyPressesPage = new KeyPressesPageObject(driver, log);
+		KeyPressesPage keyPressesPage = new KeyPressesPage(driver, log);
 		keyPressesPage.openPage();
 
 		// Push Keyboard key
@@ -32,7 +32,7 @@ public class KeyPressesTests extends TestUtilities {
 		log.info("Starting pressKeyWithActionsTest");
 
 		// Open KeyPressesPage
-		KeyPressesPageObject keyPressesPage = new KeyPressesPageObject(driver, log);
+		KeyPressesPage keyPressesPage = new KeyPressesPage(driver, log);
 		keyPressesPage.openPage();
 
 		// Push Keyboard key

@@ -4,9 +4,9 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import com.herokuapp.theinternet.base.TestUtilities;
-import com.herokuapp.theinternet.pages.LoginPageObject;
-import com.herokuapp.theinternet.pages.SecureAreaPageObject;
-import com.herokuapp.theinternet.pages.WelcomePageObject;
+import com.herokuapp.theinternet.pages.LoginPage;
+import com.herokuapp.theinternet.pages.SecureAreaPage;
+import com.herokuapp.theinternet.pages.WelcomePage;
 
 public class PositiveLoginTests extends TestUtilities {
 	@Test
@@ -14,14 +14,14 @@ public class PositiveLoginTests extends TestUtilities {
 		log.info("Staring Login Test with correct credentials");
 
 		// Open Home page
-		WelcomePageObject welcomePage = new WelcomePageObject(driver, log);
+		WelcomePage welcomePage = new WelcomePage(driver, log);
 		welcomePage.openPage();
 
 		// Click on FormAuthentication Link
-		LoginPageObject loginPage = welcomePage.clickFormAuthentucationLink();
+		LoginPage loginPage = welcomePage.clickFormAuthentucationLink();
 
 		// Execute Login
-		SecureAreaPageObject secureAreaPage = loginPage.logIn("tomsmith", "SuperSecretPassword!");
+		SecureAreaPage secureAreaPage = loginPage.logIn("tomsmith", "SuperSecretPassword!");
 
 		// Verifications
 		// Page URL is expected

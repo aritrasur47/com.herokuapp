@@ -4,8 +4,8 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import com.herokuapp.theinternet.base.TestUtilities;
-import com.herokuapp.theinternet.pages.JavaScriptAlertsPageObject;
-import com.herokuapp.theinternet.pages.WelcomePageObject;
+import com.herokuapp.theinternet.pages.JavaScriptAlertsPage;
+import com.herokuapp.theinternet.pages.WelcomePage;
 
 public class AlertTests extends TestUtilities {
 	@Test
@@ -13,11 +13,11 @@ public class AlertTests extends TestUtilities {
 		log.info("Starting jsAlertTest");
 
 		// Open home page
-		WelcomePageObject welcomePage = new WelcomePageObject(driver, log);
+		WelcomePage welcomePage = new WelcomePage(driver, log);
 		welcomePage.openPage();
 
 		// Click on Javascript alerts link
-		JavaScriptAlertsPageObject alertsPage = welcomePage.clickJavaScriptAlertsLink();
+		JavaScriptAlertsPage alertsPage = welcomePage.clickJavaScriptAlertsLink();
 
 		// Click on JS alerts button
 		alertsPage.openJSAlert();
@@ -47,11 +47,11 @@ public class AlertTests extends TestUtilities {
 		log.info("Starting jsDismissTest");
 
 		// Open home page
-		WelcomePageObject welcomePage = new WelcomePageObject(driver, log);
+		WelcomePage welcomePage = new WelcomePage(driver, log);
 		welcomePage.openPage();
 
 		// Click on JavScript alerts link
-		JavaScriptAlertsPageObject alertsPage = welcomePage.clickJavaScriptAlertsLink();
+		JavaScriptAlertsPage alertsPage = welcomePage.clickJavaScriptAlertsLink();
 
 		// Click JS Confirm button
 		alertsPage.openJSConfirm();
@@ -82,11 +82,11 @@ public class AlertTests extends TestUtilities {
 		log.info("Starting jsPromptTest");
 
 		// Open home page
-		WelcomePageObject welcomePage = new WelcomePageObject(driver, log);
+		WelcomePage welcomePage = new WelcomePage(driver, log);
 		welcomePage.openPage();
 
 		// Click on JavScript alerts link
-		JavaScriptAlertsPageObject alertsPage = welcomePage.clickJavaScriptAlertsLink();
+		JavaScriptAlertsPage alertsPage = welcomePage.clickJavaScriptAlertsLink();
 
 		// Click JS Prompt button
 		alertsPage.openJSPrompt();
