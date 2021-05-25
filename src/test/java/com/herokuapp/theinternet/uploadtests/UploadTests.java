@@ -7,16 +7,15 @@ import com.herokuapp.theinternet.base.TestUtilities;
 import com.herokuapp.theinternet.pages.FileUploaderPage;
 
 public class UploadTests extends TestUtilities {
-	@Test
-	public void imageUploadTest() {
-		log.info("Starting imageUploadTest");
+	@Test(dataProvider = "files")
+	public void fileUploadTest(int no, String fileName) {
+		log.info("Starting fileUploadTest #" + no + " for " + fileName);
 
 		// Open File Upload Page
 		FileUploaderPage fileUploaderPage = new FileUploaderPage(driver, log);
 		fileUploaderPage.openPage();
 
 		// Select Page
-		String fileName = "logo.png";
 		fileUploaderPage.selectFile(fileName);
 
 		// Push Upload Button

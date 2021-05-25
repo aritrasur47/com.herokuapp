@@ -1,7 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
 <suite name="NegativeLoginTestSuite" verbose="1" parallel="tests" thread-count="4">
-
+	
+	<test name="NegativeLoginTest-CH">
+		<parameter name="browser" value="chrome"/>
+		<classes>
+			<class
+				name="com.herokuapp.theinternet.Loginpagetests.NegativeLoginTests" />
+		</classes>
+	</test>
+	
+	
+	<!--  
 	<test name="NegativeUserNameTest-CH">
 		<parameter name="username" value="incorrectUsername"></parameter>
 		<parameter name="password" value="SuperSecretPassword!"></parameter>
@@ -49,5 +59,6 @@
 				name="com.herokuapp.theinternet.Loginpagetests.NegativeLoginTests" />
 		</classes>
 	</test>
+	-->	
 
 </suite>
