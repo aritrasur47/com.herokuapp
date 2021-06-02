@@ -1,7 +1,7 @@
 package com.herokuapp.theinternet.alertpagetests;
 
-import org.testng.Assert;
 import org.testng.annotations.Test;
+import org.testng.asserts.SoftAssert;
 
 import com.herokuapp.theinternet.base.TestUtilities;
 import com.herokuapp.theinternet.pages.JavaScriptAlertsPage;
@@ -11,6 +11,7 @@ public class AlertTests extends TestUtilities {
 	@Test
 	public void jsAlertTest() {
 		log.info("Starting jsAlertTest");
+		SoftAssert sAssert = new SoftAssert();
 
 		// Open home page
 		WelcomePage welcomePage = new WelcomePage(driver, log);
@@ -34,17 +35,20 @@ public class AlertTests extends TestUtilities {
 		applyingCustomWait(2000);
 
 		// Verifications
-		Assert.assertTrue(alertMessage.equals("I am a JS Alert"),
+		sAssert.assertTrue(alertMessage.equals("I am a JS Alert"),
 				"Alert message is not expected. \nShould be 'I am a JS Alert', but it is '" + alertMessage + "'");
 
 		// 2 - Result text is expected
-		Assert.assertTrue(result.equals("You successfully clicked an alert"),
+		sAssert.assertTrue(result.equals("You successfully clicked an alert"),
 				"result is not expected. \nShould be 'You successfully clicked an alert', but it is '" + result + "'");
+
+		sAssert.assertAll();
 	}
 
 	@Test
 	public void jsDismissTest() {
 		log.info("Starting jsDismissTest");
+		SoftAssert sAssert = new SoftAssert();
 
 		// Open home page
 		WelcomePage welcomePage = new WelcomePage(driver, log);
@@ -69,17 +73,20 @@ public class AlertTests extends TestUtilities {
 
 		// Verifications
 		// 1 - Alert text is expected
-		Assert.assertTrue(alertMessage.equals("I am a JS Confirm"),
+		sAssert.assertTrue(alertMessage.equals("I am a JS Confirm"),
 				"Alert message is not expected. \nShould be 'I am a JS Confirm', but it is '" + alertMessage + "'");
 
 		// 2 - Result text is expected
-		Assert.assertTrue(result.equals("You clicked: Cancel"),
+		sAssert.assertTrue(result.equals("You clicked: Cancel"),
 				"result is not expected. \nShould be 'You clicked: Cancel', but it is '" + result + "'");
+
+		sAssert.assertAll();
 	}
 
 	@Test
 	public void jsPromptTest() {
 		log.info("Starting jsPromptTest");
+		SoftAssert sAssert = new SoftAssert();
 
 		// Open home page
 		WelcomePage welcomePage = new WelcomePage(driver, log);
@@ -93,24 +100,26 @@ public class AlertTests extends TestUtilities {
 		applyingCustomWait(2000);
 
 		// Get alert text
-		String alertMessage = alertsPage.getAlertText();
+		String alertMessage = alertsPage.getAlertText() + "[FAIL]";
 
 		// Type text into alert
 		alertsPage.typeTextIntoAlert("Hello alert, it's Aritra here");
 		applyingCustomWait(2000);
 
 		// Get Results text
-		String result = alertsPage.getResultText();
+		String result = alertsPage.getResultText() + "[FAIL]";
 		applyingCustomWait(2000);
 
 		// Verifications
 		// 1 - Alert text is expected
-		Assert.assertTrue(alertMessage.equals("I am a JS prompt"),
+		sAssert.assertTrue(alertMessage.equals("I am a JS prompt"),
 				"Alert message is not expected. \nShould be 'I am a JS prompt', but it is '" + alertMessage + "'");
 
 		// 2 - Result text is expected
-		Assert.assertTrue(result.equals("You entered: Hello alert, it's Aritra here"),
+		sAssert.assertTrue(result.equals("You entered: Hello alert, it's Aritra here"),
 				"result is not expected. \nShould be 'You entered: Hello alert, it's Aritra here', but it is '" + result
 						+ "'");
+
+		sAssert.assertAll();
 	}
 }

@@ -16,13 +16,16 @@ public class PositiveLoginTests extends TestUtilities {
 		// Open Home page
 		WelcomePage welcomePage = new WelcomePage(driver, log);
 		welcomePage.openPage();
+		takeScreenshot("WelcomePage opened");
 
 		// Click on FormAuthentication Link
 		LoginPage loginPage = welcomePage.clickFormAuthentucationLink();
+		takeScreenshot("LoginPage opened");
 
 		// Execute Login
 		SecureAreaPage secureAreaPage = loginPage.logIn("tomsmith", "SuperSecretPassword!");
-
+		takeScreenshot("SecurePage opened");
+		
 		// Verifications
 		// Page URL is expected
 		Assert.assertEquals(secureAreaPage.getCurrentURL(), secureAreaPage.getPageURL());
