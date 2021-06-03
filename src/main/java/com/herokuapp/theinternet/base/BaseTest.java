@@ -8,9 +8,11 @@ import org.openqa.selenium.WebDriver;
 import org.testng.ITestContext;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Optional;
 import org.testng.annotations.Parameters;
 
+@Listeners({ com.herokuapp.theinternet.base.TestListener.class })
 public class BaseTest {
 	protected WebDriver driver;
 	protected Logger log;
@@ -19,14 +21,20 @@ public class BaseTest {
 	protected String testName;
 	protected String testMethodName;
 
-	@Parameters({ "browser" })
+	@Parameters({ "browser", "deviceName" })
 	@BeforeMethod(alwaysRun = true)
-	public void setUp(Method method, @Optional("chrome") String browser, ITestContext ctx) {
+	public void setUp(Method method, @Optional("chrome") String browser, @Optional String deviceName,
+			ITestContext ctx) {
 		String testName = ctx.getCurrentXmlTest().getName();
 		log = LogManager.getLogger(testName);
 
 		BrowserDriverFactory factory = new BrowserDriverFactory(browser, log);
-		driver = factory.createDriver();
+
+		if (deviceName != null) {
+			driver = factory.createChromeWithMobileEmulation(deviceName);
+		} else {
+			driver = factory.createDriver();
+		}
 
 		try {
 			Thread.sleep(3000);

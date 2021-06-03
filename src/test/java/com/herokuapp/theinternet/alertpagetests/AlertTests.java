@@ -10,7 +10,7 @@ import com.herokuapp.theinternet.pages.WelcomePage;
 public class AlertTests extends TestUtilities {
 	@Test
 	public void jsAlertTest() {
-		log.info("Starting jsAlertTest");
+		// log.info("Starting jsAlertTest");
 		SoftAssert sAssert = new SoftAssert();
 
 		// Open home page
@@ -47,7 +47,7 @@ public class AlertTests extends TestUtilities {
 
 	@Test
 	public void jsDismissTest() {
-		log.info("Starting jsDismissTest");
+		// log.info("Starting jsDismissTest");
 		SoftAssert sAssert = new SoftAssert();
 
 		// Open home page
@@ -85,7 +85,7 @@ public class AlertTests extends TestUtilities {
 
 	@Test
 	public void jsPromptTest() {
-		log.info("Starting jsPromptTest");
+		// log.info("Starting jsPromptTest");
 		SoftAssert sAssert = new SoftAssert();
 
 		// Open home page
